@@ -19,9 +19,9 @@ public:
     /*Constructeur*/
     Forme(Point<T> p);
 
-    friend std::ostream& operator<< <T>(std::ostream &, Forme const&);
-    virtual S perimetre();
-    virtual S surface();
+    friend std::ostream& operator<< <T, S>(std::ostream &, Forme const&);
+    virtual S perimetre()=0;
+    virtual S surface()=0;
 };
 
 template<typename T, typename S>

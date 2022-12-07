@@ -7,6 +7,9 @@ template <typename T, typename S>
 class Rectangle;
 
 template <typename T, typename S>
+std::ostream& operator<<(std::ostream &, Rectangle<T, S> const&);
+
+template <typename T, typename S>
 class Rectangle : public Forme<T, S>
 {
 protected:
@@ -16,13 +19,13 @@ protected:
 public:
     Rectangle(Point<T> p, T largeur, T hauteur);
 
-    friend std::ostream& operator<< <T>(std::ostream &, Rectangle const&);
+    friend std::ostream& operator<< <T, S>(std::ostream &, Rectangle const&);
     S perimetre();
     S surface();
 };
 
 template<typename T, typename S>
-Rectangle<T, S>::Rectangle(Point<T> p, T largeur, T hauteur){
+Rectangle<T, S>::Rectangle(Point<T> p, T largeur, T hauteur):Forme<T, S>(p){
     this->point_ = p;
     this->largeur_ = largeur;
     this->hauteur_ = hauteur;
@@ -43,7 +46,7 @@ S Rectangle<T, S>::surface(){
 template <typename T, typename S>
 std::ostream& operator<<(std::ostream &output, Rectangle<T, S> const &r)
 {
-    output << "Rectangle de centre " << r.point_ << ", largeur = " << r.largeur_ << " et hauteur = " << r.hauteur_ << std::endl;
+    output << "Rectangle de centre " << r.point_ << "De largeur = " << r.largeur_ << " et hauteur = " << r.hauteur_ << std::endl;
     return output;
 }
 
