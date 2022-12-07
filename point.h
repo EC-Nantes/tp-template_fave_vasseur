@@ -2,6 +2,7 @@
 #define POINT_H
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 template <typename T>
@@ -54,6 +55,11 @@ template<typename T> void Point<T>::setOrdonnee(T ordonnee) {this->ordonnee_ = o
 template<typename T> void Point<T>::translater(T x, T y){
     this->abscisse_ += x;
     this->ordonnee_ += y;
+}
+
+template<> void Point<string>::translater(string x, string y){
+    swap(this->abscisse_, x);
+    swap(this->ordonnee_, y);
 }
 
 template <typename T>

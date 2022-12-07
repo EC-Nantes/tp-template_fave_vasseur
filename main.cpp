@@ -49,11 +49,24 @@ void test_carre()
     std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
 }
 
+void test_translateSpecialise()
+{
+    std::cout << " ~~~~~~" << __func__ << "~~~~~~" << std::endl;
+    Point<string> pInt("5", "10");
+    std::cout << "Point avant translation : " << pInt;
+
+    string translate = "8";
+    pInt.translater(translate, translate);
+    std::cout << "Point apres translation : " << pInt;
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+}
+
 int main(int argc, char *argv[]){
     test_creationPoint();
     test_translatePoint();
 
     test_rectangle();
     test_carre();
+    test_translateSpecialise();
     return 0;
 }
